@@ -1,0 +1,83 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The skeleton application for the Laravel framework.",
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "awcodes/filament-gravatar": "^2.0",
+        "bezhansalleh/filament-exceptions": "^2.0",
+        "bezhansalleh/filament-shield": "^3.1",
+        "croustibat/filament-jobs-monitor": "^2.1",
+        "diglactic/laravel-breadcrumbs": "^8.1",
+        "filament/filament": "^3.1",
+        "filament/spatie-laravel-media-library-plugin": "^3.2",
+        "guzzlehttp/guzzle": "^7.2",
+        "jeffgreco13/filament-breezy": "v2.2.1.1",
+        "joshembling/image-optimizer": "^1.4",
+        "laravel/framework": "^10.10",
+        "laravel/sanctum": "^3.3",
+        "laravel/tinker": "^2.8",
+        "livewire/livewire": "^3.3",
+        "pboivin/filament-peek": "^2.2",
+        "pxlrbt/filament-excel": "^2.2",
+        "romanzipp/laravel-seo": "^2.6",
+        "sinnbeck/markdom": "^2.0",
+        "spatie/laravel-sitemap": "^7.0",
+        "staudenmeir/eloquent-has-many-deep": "^1.19",
+        "stechstudio/filament-impersonate": "^3.5",
+        "xlite-dev/filament-impersonate": "^2.0",
+        "z3d0x/filament-logger": "^0.6.2"
+    },
+    "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.9",
+        "fakerphp/faker": "^1.9.1",
+        "laravel/pint": "^1.0",
+        "laravel/sail": "^1.18",
+        "mockery/mockery": "^1.4.4",
+        "nunomaduro/collision": "^7.0",
+        "spatie/laravel-ignition": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi",
+            "@php artisan filament:upgrade"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
